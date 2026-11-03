@@ -1,26 +1,273 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---------------------------------------------------------------------------
+ * wick & web site chrome — warm small-batch merch shop, spider included.
+ * --------------------------------------------------------------------------- */
+.ssd-root { position: relative; min-height: 100svh; background: #b8420c; color: #f3e6d2; overflow-x: clip;
+  font-family: "Helvetica Neue", "Neue Haas Grotesk Text", Inter, Arial, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+.ssd-root a { color: inherit; text-decoration: none; }
+.ssd-root img { max-width: none; }
+.ssd-nav { position: relative; z-index: 30; display: flex; align-items: center; justify-content: space-between; padding: 26px clamp(16px, 4.5vw, 64px) 0; }
+.ssd-logo { display: inline-flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 400; letter-spacing: -0.02em; }
+.ssd-nav-right { display: flex; align-items: center; gap: clamp(16px, 2.4vw, 28px); }
+.ssd-links { display: flex; align-items: center; gap: clamp(14px, 2.4vw, 32px); font-size: 16px; font-weight: 300; letter-spacing: -0.01em; }
+.ssd-links a { opacity: 0.92; transition: opacity .2s; }
+.ssd-links a:hover { opacity: 1; }
+.ssd-here { text-decoration: line-through !important; text-decoration-thickness: 1.5px !important; }
+.ssd-hero { position: relative; height: max(100svh, 820px); margin-top: -64px; }
+.ssd-word { position: absolute; left: 50%; top: 4%; transform: translateX(-50%); margin: 0; font-size: min(50vw, 92svh); line-height: 0.82; font-weight: 400; letter-spacing: -0.065em; white-space: nowrap; color: #f1e3cd; user-select: none; }
+.ssd-word span { display: inline-block; }
+.ssd-radio { position: absolute; left: 4.5%; top: 47%; width: clamp(250px, 21vw, 300px); padding: 14px 16px 12px; border-radius: 18px; z-index: 2;
+  background: linear-gradient(160deg, rgba(255,255,255,0.26), rgba(255,255,255,0.08)); border: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  box-shadow: 0 24px 50px -18px rgba(20, 10, 5, 0.6), inset 0 1px 0 rgba(255,255,255,0.4); transform: rotate(1.2deg); }
+.ssd-radio-top { display: flex; align-items: center; gap: 10px; }
+.ssd-art { width: 38px; height: 38px; border-radius: 8px; flex: none; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); }
+.ssd-radio-meta { display: flex; flex-direction: column; min-width: 0; flex: 1; line-height: 1.25; }
+.ssd-radio-meta b { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+.ssd-radio-meta span { font-size: 11.5px; opacity: 0.75; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ssd-root button { all: unset; cursor: pointer; display: inline-grid; place-items: center; color: #fff; }
+.ssd-root button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 999px; }
+.ssd-heart { opacity: 0.8; }
+.ssd-heart.on { color: #ff6b8b; opacity: 1; }
+.ssd-bar { margin-top: 12px; height: 3px; border-radius: 3px; background: rgba(255,255,255,0.22); overflow: hidden; }
+.ssd-fill { display: block; height: 100%; width: 34%; background: #fff; border-radius: 3px; }
+.ssd-fill.run { animation: ssd-prog 40s linear infinite; }
+@keyframes ssd-prog { from { width: 0% } to { width: 100% } }
+.ssd-radio-row { display: flex; justify-content: space-between; margin-top: 7px; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.85; }
+.ssd-live { display: inline-flex; align-items: center; gap: 6px; }
+.ssd-live i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.5); }
+.ssd-live.on i { background: #ff3b47; box-shadow: 0 0 0 0 rgba(255,59,71,0.6); animation: ssd-live 1.6s ease-out infinite; }
+@keyframes ssd-live { 0% { box-shadow: 0 0 0 0 rgba(255,59,71,0.6) } 100% { box-shadow: 0 0 0 8px rgba(255,59,71,0) } }
+.ssd-controls { display: flex; justify-content: center; align-items: center; gap: 26px; margin-top: 8px; }
+.ssd-controls button { width: 30px; height: 30px; border-radius: 50%; opacity: 0.9; }
+.ssd-controls .ssd-play { width: 40px; height: 40px; background: #fff; color: #b8420c; opacity: 1; box-shadow: 0 6px 16px -6px rgba(20,10,5,0.5); }
+.ssd-copy { position: absolute; left: 4.5%; bottom: 4.5%; z-index: 2; max-width: 40vw; }
+.ssd-copy h2 { margin: 0; display: inline-block; font-size: clamp(44px, 5.6vw, 92px); line-height: 0.92; font-weight: 500; letter-spacing: -0.055em; }
+.ssd-copy p { margin: 18px 0 0; font-size: clamp(14px, 1.15vw, 18px); font-weight: 300; opacity: 0.9; letter-spacing: -0.01em; }
+.ssd-ticket { position: absolute; right: 6%; top: 50%; width: 220px; padding: 14px 16px; z-index: 2; color: #2a2116; background: #f5ecd8; border-radius: 6px; transform: rotate(7deg);
+  box-shadow: 0 22px 40px -16px rgba(20,10,5,0.6); background-image: radial-gradient(circle at 0 50%, #b8420c 9px, transparent 10px), radial-gradient(circle at 100% 50%, #b8420c 9px, transparent 10px);
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+.ssd-ticket-top, .ssd-ticket-foot { display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 0.12em; opacity: 0.8; }
+.ssd-ticket-title { margin: 12px 0; padding: 10px 0; border-top: 1.5px dashed rgba(42,33,22,0.4); border-bottom: 1.5px dashed rgba(42,33,22,0.4); font-family: Georgia, "Times New Roman", serif; font-style: italic; font-size: 24px; line-height: 1.05; letter-spacing: -0.02em; }
+.ssd-note { position: absolute; right: 4%; bottom: 7%; width: 190px; padding: 22px 18px 16px; display: flex; flex-direction: column; gap: 6px; z-index: 2;
+  background: #fff7a8; color: #2b2a1a; transform: rotate(-3deg); box-shadow: 0 18px 30px -14px rgba(20,10,5,0.55);
+  font-family: "Ink Free", "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive; font-size: 17px; }
+.ssd-note b { font-size: 20px; }
+.ssd-note s { opacity: 0.55; }
+.ssd-pin { position: absolute; top: -8px; left: 50%; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #ff8b8b, #c0141e); box-shadow: 0 3px 4px rgba(0,0,0,0.35); }
+.ssd-hint { margin: 22px 0 0; font-size: 12px; letter-spacing: 0.04em; opacity: 0.75; z-index: 2; white-space: nowrap; }
+.ssd-hint kbd { display: inline-block; padding: 2px 7px; margin-right: 4px; border: 1px solid rgba(255,255,255,0.55); border-bottom-width: 2px; border-radius: 5px; font: inherit; font-size: 11px; }
+.ssd-shelf { position: relative; padding: 120px clamp(16px, 4.5vw, 64px) 40px; z-index: 2; }
+.ssd-shelf h3 { display: inline-block; margin: 0 0 32px; font-size: clamp(30px, 3.4vw, 54px); font-weight: 500; letter-spacing: -0.05em; }
+.ssd-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2vw, 28px); }
+.ssd-card { display: block; padding: 22px 22px 26px; border-radius: 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.22); transition: background .2s, border-color .2s; }
+a.ssd-card:hover { background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.32); }
+.ssd-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 10px; margin-bottom: 16px; }
+.ssd-card-k { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; }
+.ssd-card h4 { margin: 34px 0 10px; font-size: 24px; font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; }
+.ssd-card img ~ h4 { margin-top: 0; }
+.ssd-card p { margin: 0; font-size: 14px; font-weight: 300; opacity: 0.85; line-height: 1.45; }
+.ssd-card-price { display: block; margin-top: 10px; font-size: 14px; opacity: 0.9; }
+.ssd-sitefoot { position: relative; z-index: 2; display: flex; justify-content: space-between; margin-top: 60px; padding: 18px clamp(16px, 4.5vw, 64px) 40px; border-top: 1px solid rgba(255,255,255,0.25); font-size: 13px; font-weight: 300; opacity: 0.85; }
+
+/* cart button + drawer */
+.ssd-cart-btn { position: relative; width: 32px; height: 32px; }
+.ssd-cart-badge { position: absolute; top: -5px; right: -6px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 999px; background: #fff; color: #b8420c; font-size: 10px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+.ssd-cart-overlay { position: fixed; inset: 0; background: rgba(20,10,5,0.5); opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 40; }
+.ssd-cart-overlay.open { opacity: 1; pointer-events: auto; }
+.ssd-cart-drawer { position: fixed; top: 0; right: 0; height: 100svh; width: min(380px, 92vw); background: #a83c0b; color: #f3e6d2; z-index: 41; padding: 24px 22px; display: flex; flex-direction: column; transform: translateX(100%); transition: transform .3s ease; box-shadow: -20px 0 50px -20px rgba(20,10,5,0.6); }
+.ssd-cart-drawer.open { transform: translateX(0); }
+.ssd-cart-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; font-size: 18px; }
+.ssd-cart-empty { opacity: 0.8; font-size: 14px; line-height: 1.5; }
+.ssd-cart-items { display: flex; flex-direction: column; gap: 16px; overflow-y: auto; flex: 1; }
+.ssd-cart-item { display: flex; gap: 12px; align-items: flex-start; }
+.ssd-cart-item img { width: 56px; height: 56px; border-radius: 10px; object-fit: cover; }
+.ssd-cart-item-info { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.ssd-cart-item-name { font-size: 14px; font-weight: 500; }
+.ssd-cart-item-price { font-size: 12px; opacity: 0.75; }
+.ssd-qty { display: inline-flex; align-items: center; gap: 10px; margin-top: 4px; }
+.ssd-qty button { width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,0.15); font-size: 13px; }
+.ssd-cart-remove { font-size: 11px; opacity: 0.65; text-decoration: underline; align-self: flex-start; }
+.ssd-cart-foot { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.25); }
+.ssd-cart-total { display: flex; justify-content: space-between; font-size: 15px; margin-bottom: 14px; }
+
+/* buttons */
+.ssd-btn { display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 13px; border-radius: 999px; background: #fff; color: #b8420c; font-size: 14px; font-weight: 600; text-align: center; }
+.ssd-btn.disabled { opacity: 0.4; pointer-events: none; }
+.ssd-btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.4); font-size: 14px; width: fit-content; }
+
+/* generic content pages: shop, product, checkout, say hi */
+.ssd-page { position: relative; z-index: 2; max-width: 1120px; margin-inline: auto; padding: 56px clamp(16px, 4.5vw, 64px) 110px; min-height: 60svh; }
+.ssd-page h1 { margin: 0 0 10px; font-size: clamp(34px, 4.6vw, 58px); font-weight: 500; letter-spacing: -0.045em; }
+.ssd-lede { margin: 0 0 40px; font-size: 16px; opacity: 0.85; max-width: 46ch; }
+.ssd-crumb { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; opacity: 0.75; margin-bottom: 24px; text-decoration: underline; }
+
+.ssd-product { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
+.ssd-product-photo { width: 100%; border-radius: 20px; box-shadow: 0 30px 60px -24px rgba(20,10,5,0.55); }
+.ssd-product-k { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; }
+.ssd-product-price { font-size: 22px; margin: 10px 0 18px; opacity: 0.9; }
+.ssd-product-desc { font-size: 15px; line-height: 1.6; opacity: 0.9; max-width: 48ch; margin-bottom: 26px; }
+.ssd-qty-row { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
+.ssd-qty-row .ssd-qty { margin-top: 0; }
+
+.ssd-form { display: flex; flex-direction: column; gap: 16px; max-width: 420px; }
+.ssd-field { display: flex; flex-direction: column; gap: 6px; }
+.ssd-field label { font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.75; }
+.ssd-field input, .ssd-field textarea { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); border-radius: 10px; padding: 11px 13px; font: inherit; color: inherit; }
+.ssd-field input::placeholder, .ssd-field textarea::placeholder { color: rgba(243,230,210,0.55); }
+.ssd-field input:focus, .ssd-field textarea:focus { outline: 2px solid #fff; outline-offset: 1px; }
+.ssd-status { font-size: 13px; margin-top: 2px; }
+.ssd-status.ok { color: #bdf2c4; }
+.ssd-status.err { color: #ffc2bd; }
+
+.ssd-checkout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 360px); gap: clamp(24px, 5vw, 64px); align-items: start; }
+.ssd-order-summary { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.22); border-radius: 16px; padding: 22px; }
+.ssd-order-line { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.15); }
+.ssd-order-total { display: flex; justify-content: space-between; font-size: 17px; font-weight: 600; margin-top: 14px; }
+.ssd-confirm { max-width: 480px; }
+.ssd-order-id { display: inline-block; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 6px; margin: 10px 0 20px; }
+
+@media (max-width: 760px) {
+  .ssd-links { display: none; }
+  .ssd-hero { height: max(100svh, 720px); }
+  .ssd-word { top: 14%; font-size: 72vw; }
+  .ssd-radio { left: 5%; top: 41%; width: 220px; }
+  .ssd-copy { max-width: 90vw; bottom: 17%; }
+  .ssd-ticket { right: -12%; top: 27%; width: 170px; transform: rotate(9deg) scale(0.78); }
+  .ssd-note, .ssd-hint { display: none; }
+  .ssd-cards { grid-template-columns: 1fr; }
+  .ssd-product, .ssd-checkout { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ssd-fill.run, .ssd-live.on i { animation: none; }
 }
